@@ -1,0 +1,14 @@
+{
+    "name": "Foodie Wikipedia",
+    "short_name": "FoodiePedia",
+    "description": "Aplikasi Wikipedia untuk Makanan Indonesia",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#7F8C8D",
+    "theme_color": "#7F8C8D",
+    "icons": [{
+        "src": "img/makanan-icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }]
+}
