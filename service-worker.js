@@ -1,4 +1,4 @@
-const CACHE_NAME = "News-Reader-v3.7";
+const CACHE_NAME = "Info-Bola v.1.2";
 var urlsToCache = [
     "/",
     "/img/makanan-icon.png",
@@ -23,7 +23,8 @@ var urlsToCache = [
     "/js/api.js",
     "/js/db.js",
     "/js/idb.js",
-    "/manifest.json"
+    "/manifest.json",
+    "js/jquery-3.4.1.js"
 ];
 
 self.addEventListener("install", function (event) {
@@ -35,7 +36,7 @@ self.addEventListener("install", function (event) {
 });
 
 self.addEventListener("fetch", function (event) {
-    var base_url = "https://readerapi.codepolitan.com/";
+    var base_url = "https://api.football-data.org/v2/competitions/";
 
     if (event.request.url.indexOf(base_url) > -1) {
         event.respondWith(
@@ -55,43 +56,6 @@ self.addEventListener("fetch", function (event) {
             })
         )
     }
-
-    // event.respondWith(
-    //     caches
-    //     .match(event.request, {
-    //         cacheName: CACHE_NAME
-    //     })
-    //     .then(function (response) {
-    //         if (response) {
-    //             console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
-    //             return response;
-    //         }
-
-    //         var fetchRequest = event.request.clone();
-
-    //         return fetch(fetchRequest).then(
-    //             function (response) {
-    //                 if (!response || response.status !== 200) {
-    //                     return response;
-    //                 }
-
-    //                 var responseToChace = response.clone();
-    //                 caches.open(CACHE_NAME)
-    //                     .then(function (cache) {
-    //                         cache.put(event.request, responseToChace);
-    //                     });
-
-    //                 return response;
-    //             });
-
-    //         console.log(
-    //             "ServiceWorker: Memuat aset dari server: ",
-    //             event.request.url
-    //         );
-    //         return fetch(event.request);
-    //     })
-    // );
-
 });
 
 self.addEventListener("activate", function (event) {
